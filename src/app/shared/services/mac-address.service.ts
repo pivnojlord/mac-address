@@ -39,6 +39,5 @@ export class MacAddressService {
     }
     this.macAddresses.push(macAddress);
     this._appStorage.setItem('MacAddresses', JSON.stringify(this.macAddresses));
-    return this.macAddresses;
   }
 }
