@@ -1,8 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
+import {CookieModule, CookieService} from '@gorniv/ngx-universal';
+import { AppComponent } from './app.component';
+import {AppRoutes} from './app.routing';
+import {UniversalStorage} from './shared/storage/universal.storage';
 
 @NgModule({
   declarations: [
@@ -10,9 +14,15 @@ import {RouterModule} from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    AppRoutes,
+    CookieModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    CookieService,
+    UniversalStorage
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
