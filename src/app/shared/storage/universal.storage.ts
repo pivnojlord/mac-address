@@ -14,7 +14,7 @@ export class UniversalStorage implements Storage {
     this.cookieService.removeAll();
   }
 
-  public getAll(): Object {
+  public getAll(): object {
     return this.cookieService.getAll();
   }
 
