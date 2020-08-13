@@ -1,0 +1,19 @@
+
+<table>
+  <tr>
+    <th>Информация о MAC-адресе</th>
+    <th>Информация о вендоре </th>
+    <th>Блок адресов</th>
+  </tr>
+  <tr *ngFor="let macAddress of _macAddress.macAddresses">
+    <td style="padding-bottom:20px;">
+      {{macAddress.macAddressDetails | json}}
+    </td>
+    <td style="padding-bottom:20px;">
+      {{macAddress.blockDetails | json}}
+    </td>
+    <td style="padding-bottom:20px;">
+      {{macAddress.vendorDetails | json}}
+    </td>
+  </tr>
+</table>
