@@ -1,10 +1,10 @@
-import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UniversalStorage } from '@shared/storage/universal.storage';
+import { UniversalStorage } from 'src/app/shared/storage/universal.storage';
+import { environment } from '../../../environments/environment';
 
-export interface MacAddress {
+export interface IMacAddress {
   macAddressDetails: any;
   vendorDetails: any;
   blockDetails: any;
@@ -20,15 +20,15 @@ export class MacAddressService {
     private _http: HttpClient
   ) { }
 
-  checkValidAddress({search}): Observable<MacAddress> {
-   return this._http.get<MacAddress>(`${environment.macAddress}/v1`, {
+  checkValidAddress({search}): Observable<IMacAddress> {
+   return this._http.get<IMacAddress>(`${environment.macAddress}/v1`, {
        params: new HttpParams().set('apiKey', 'at_BULmXFODqtiqHIVJ6CERtQ11sBwzn')
          .set('output', 'json')
          .set('search', search)
     });
   }
 
-  get macAddresses(): MacAddress[] {
+  get macAddresses(): IMacAddress[] {
     return JSON.parse(this._appStorage.getItem('MacAddresses'));
   }
 
